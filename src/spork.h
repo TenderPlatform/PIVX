@@ -12,7 +12,7 @@
 #include "net.h"
 #include "sync.h"
 #include "util.h"
-
+#include "lyra2rev2hash.h"
 #include "obfuscation.h"
 #include "protocol.h"
 #include <boost/lexical_cast.hpp>
@@ -85,7 +85,7 @@ public:
 
     uint256 GetHash()
     {
-        uint256 n = HashQuark(BEGIN(nSporkID), END(nTimeSigned));
+        uint256 n = lyra2re2_hash(BEGIN(nSporkID), END(nTimeSigned));
         return n;
     }
 

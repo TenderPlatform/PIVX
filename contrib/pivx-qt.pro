@@ -83,6 +83,7 @@ HEADERS += src/activemasternode.h \
            src/eccryptoverify.h \
            src/ecwrapper.h \
            src/hash.h \
+		   src/lyra2rev2hash.h \
            src/init.h \
            src/swifttx.h \
            src/keepass.h \
@@ -131,6 +132,16 @@ HEADERS += src/activemasternode.h \
            src/wallet_ismine.h \
            src/walletdb.h \
            src/compat/sanity.h \
+           src/lyra2rev2/Lyra2.h \
+           src/lyra2rev2/Lyra2RE.h \
+           src/lyra2rev2/sph_blake.h \
+           src/lyra2rev2/sph_bmw.h \
+           src/lyra2rev2/sph_cubehash.h \
+           src/lyra2rev2/sph_groestl.h \
+           src/lyra2rev2/sph_keccak.h \
+           src/lyra2rev2/sph_skein.h \
+           src/lyra2rev2/sph_types.h \
+           src/lyra2rev2/Sponge.h \
            src/config/pivx-config.h \
            src/crypto/common.h \
            src/crypto/hmac_sha256.h \
@@ -430,6 +441,15 @@ SOURCES += src/activemasternode.cpp \
            src/wallet.cpp \
            src/wallet_ismine.cpp \
            src/walletdb.cpp \
+		   src/lyra2rev2/blake.c \
+           src/lyra2rev2/bmw.c \
+           src/lyra2rev2/cubehash.c \
+           src/lyra2rev2/groestl.c \
+           src/lyra2rev2/keccak.c \
+           src/lyra2rev2/Lyra2.c \
+	       src/lyra2rev2/Lyra2RE.c \
+           src/lyra2rev2/skein.c \
+           src/lyra2rev2/Sponge.c \
            src/compat/glibc_compat.cpp \
            src/compat/glibc_sanity.cpp \
            src/compat/glibcxx_compat.cpp \
