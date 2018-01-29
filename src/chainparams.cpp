@@ -53,7 +53,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("0x"))
+    (0, uint256("0x000002995c0364c569adea37752707dd805ad8951358f2460cd460cbf3dc9572"))
 ;
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
@@ -135,37 +135,12 @@ public:
         genesis.nVersion = 1;
         genesis.nTime = 1517200290;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 0;
+        genesis.nNonce = 4169099;
 
         hashGenesisBlock = genesis.GetHash();
 		
-        // If genesis block hash does not match, then generate new genesis hash.
-        if (true) {
-            printf("Searching for genesis block...\n");
-            // This will figure out a valid hash and Nonce if you're
-            // creating a different genesis block:
-            uint256 hashTarget = (~uint256(0) >> 20);
-            while(true) {
-                uint256 thash = genesis.GetHash();
-                if (thash <= hashTarget)
-                break;
-                if ((genesis.nNonce & 0xFFF) == 0) {
-                    printf("nonce %08X: hash = %s (target = %s)\n", genesis.nNonce, thash.ToString().c_str(), hashTarget.ToString().c_str());
-                }
-                ++genesis.nNonce;
-                if (genesis.nNonce == 0) {
-                    printf("NONCE WRAPPED, incrementing time\n");
-                    ++genesis.nTime;
-                }
-            }
-            printf("genesis.nTime = %u \n", genesis.nTime);
-            printf("genesis.nNonce = %u \n", genesis.nNonce);
-            printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
-            printf("genesis.hashMerkleRoot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
-        }
-		
-        assert(hashGenesisBlock == uint256("0x"));
-        assert(genesis.hashMerkleRoot == uint256("0x"));
+        assert(hashGenesisBlock == uint256("0x000002995c0364c569adea37752707dd805ad8951358f2460cd460cbf3dc9572"));
+        assert(genesis.hashMerkleRoot == uint256("0xf335c046f4b9496f3c4974b1bd42e781b873c67e57551752bfdd73eb003664dc"));
 
         vSeeds.push_back(CDNSSeedData("104.236.169.135", "104.236.169.135"));
 
